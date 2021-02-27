@@ -14,16 +14,16 @@ The source code is released under Apache 2.0 (https://aws.amazon.com/apache-2-0/
 
 ### Prerequisites
 
-The DeepRacer device comes with all the pre-requisite packages, build systems and libraries installed to build and run the webserver_pkg. More details about pre installed set of packages and libraries on the DeepRacer, and installing required build systems can be found in the [Getting Started](https://github.com/aws-racer/aws-deepracer-launcher/blob/main/getting-started.md) section of the AWS DeepRacer Opensource page.
+The DeepRacer device comes with all the pre-requisite packages and libraries installed to run the webserver_pkg. More details about pre installed set of packages and libraries on the DeepRacer, and installing required build systems can be found in the [Getting Started](https://github.com/aws-racer/aws-deepracer-launcher/blob/main/getting-started.md) section of the AWS DeepRacer Opensource page.
 
 The webserver_pkg specifically depends on the following ROS2 packages as build and execute dependencies:
 
 1. *deepracer_interfaces_pkg* - This packages contains the custom message and service type definitions used across the AWS DeepRacer core application.
-1. *ctrl_pkg* - The DeepRacer Control ROS package creates the *ctrl_node* which ** is part of the core AWS DeepRacer application.
-1. *sensor_fusion_pkg* - The DeepRacer Sensor Fusion ROS package creates the *sensor_fusion_node* which ** is part of the core AWS DeepRacer application.
-1. *deepracer_systems_pkg* - The DeepRacer Systems ROS package creates the *software_update_node, model_loader_node, network_monitor_node* and *otg_control_node* which ** is part of the core AWS DeepRacer application.
-1. *device_info_pkg* - The DeepRacer Device Info Optimizer ROS package creates the *device_info_node* which ** is part of the core AWS DeepRacer application.
-1. *i2c_pkg* - The DeepRacer I2C ROS package creates the *battery_node* which ** is part of the core AWS DeepRacer application.
+1. *ctrl_pkg* - The DeepRacer Control ROS package creates the *ctrl_node* which is part of the core AWS DeepRacer application.
+1. *sensor_fusion_pkg* - The DeepRacer Sensor Fusion ROS package creates the *sensor_fusion_node* which is part of the core AWS DeepRacer application.
+1. *deepracer_systems_pkg* - The DeepRacer Systems ROS package creates the *software_update_node, model_loader_node, network_monitor_node* and *otg_control_node* which is part of the core AWS DeepRacer application.
+1. *device_info_pkg* - The DeepRacer Device Info ROS package creates the *device_info_node* which is part of the core AWS DeepRacer application.
+1. *i2c_pkg* - The DeepRacer I2C ROS package creates the *battery_node* which is part of the core AWS DeepRacer application.
 
 ## Downloading and Building
 
