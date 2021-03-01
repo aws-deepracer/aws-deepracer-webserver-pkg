@@ -114,5 +114,5 @@ def get_led_color():
         else:
             return jsonify(success=False, reason="Error")
     except Exception as ex:
-        webserver_node.get_logger().error("Unable to reach get vehicle led server: {ex}")
+        webserver_node.get_logger().error(f"Unable to reach get vehicle led server: {ex}")
         return jsonify(success=False, reason="Error")

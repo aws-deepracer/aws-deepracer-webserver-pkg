@@ -56,6 +56,7 @@ from deepracer_interfaces_pkg.srv import (ActiveStateSrv,
                                           BeginSoftwareUpdateSrv,
                                           SoftwareUpdateStateSrv,
                                           NavThrottleSrv,
+                                          GetCtrlModesSrv,
                                           OTGLinkStateSrv)
 from deepracer_interfaces_pkg.msg import (ServoCtrlMsg,
                                           SoftwareUpdatePctMsg)
@@ -79,6 +80,7 @@ from webserver_pkg.constants import (VEHICLE_STATE_SERVICE,
                                      BEGIN_UPDATE_SERVICE,
                                      SOFTWARE_UPDATE_STATE_SERVICE,
                                      AUTONOMOUS_THROTTLE_SERVICE,
+                                     GET_CTRL_MODES_SERVICE,
                                      GET_OTG_LINK_STATE_SERVICE,
                                      CAL_DRIVE_TOPIC,
                                      MANUAL_DRIVE_TOPIC,
@@ -267,6 +269,15 @@ class WebServerNode(Node):
                                                    AUTONOMOUS_THROTTLE_SERVICE,
                                                    callback_group=set_throttle_cb_group)
         self.wait_for_service_availability(self.set_throttle_cli)
+
+        # Create a reentrant callback group to call Get Ctrl Modes service.
+        get_ctrl_modes_cb_group = ReentrantCallbackGroup()
+        self.get_logger().info("Create Get Ctrl Modes service client: "
+                               f"{GET_CTRL_MODES_SERVICE}")
+        self.get_ctrl_modes_cli = self.create_client(GetCtrlModesSrv,
+                                                     GET_CTRL_MODES_SERVICE,
+                                                     callback_group=get_ctrl_modes_cb_group)
+        self.wait_for_service_availability(self.get_ctrl_modes_cli)
 
         # Create a reentrant callback group to call otg link state service.
         otg_link_state_cb_group = ReentrantCallbackGroup()

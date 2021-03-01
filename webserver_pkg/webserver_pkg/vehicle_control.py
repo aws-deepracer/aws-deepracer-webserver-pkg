@@ -31,7 +31,8 @@ from flask import (Blueprint,
 from deepracer_interfaces_pkg.msg import ServoCtrlMsg
 from deepracer_interfaces_pkg.srv import (ActiveStateSrv,
                                           EnableStateSrv,
-                                          NavThrottleSrv)
+                                          NavThrottleSrv,
+                                          GetCtrlModesSrv)
 from webserver_pkg import constants
 from webserver_pkg.utility import (api_fail,
                                    call_service_sync)
@@ -280,3 +281,34 @@ def max_nav_throttle():
     except Exception as ex:
         webserver_node.get_logger().error(f"Unable to reach navigation throttle server: {ex}")
         return jsonify(success=False, reason="Unable to reach navigation throttle server")
+
+
+@VEHICLE_CONTROL_BLUEPRINT.route("/api/control_modes_available", methods=["GET"])
+def control_modes_available():
+    """API to call the GetCtrlModesCountSrv service to get the list of available modes
+       in ctrl_pkg (autonomous/manual/calibration/followme).
+
+    Returns:
+        dict: Execution status if the API call was successful, list of available modes
+              and error reason if call fails.
+    """
+    webserver_node = webserver_publisher_node.get_webserver_node()
+    webserver_node.get_logger().info("Providing the number of available modes")
+    try:
+        get_ctrl_modes_req = GetCtrlModesSrv.Request()
+        get_ctrl_modes_res = call_service_sync(webserver_node.get_ctrl_modes_cli,
+                                               get_ctrl_modes_req)
+
+        control_modes_available = list()
+        for mode in get_ctrl_modes_res.modes:
+            control_modes_available.append(constants.MODE_DICT[mode])
+
+        data = {
+            "control_modes_available": control_modes_available,
+            "success": True
+        }
+        return jsonify(data)
+
+    except Exception as ex:
+        webserver_node.get_logger().error(f"Unable to reach get ctrl modes service: {ex}")
+        return jsonify(success=False, reason="Error")

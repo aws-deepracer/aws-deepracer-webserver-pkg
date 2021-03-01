@@ -128,6 +128,7 @@ The webserver_publisher_node provides the core functionality to launch the FLASK
 |/sensor_fusion_pkg/sensor_data_status|SensorStatusCheckSrv|Client to the sensor data status service to get the sensor connection status for single camera/stereo camera and LiDAR.|
 |/ctrl_pkg/set_car_led|SetLedCtrlSrv|Client to set car led service to set the tail light LED values.|
 |/ctrl_pkg/get_car_led|GetLedCtrlSrv|Client to get car led service to get the tail light LED values.|
+|/ctrl_pkg/get_ctrl_modes|GetCtrlModesSrv|Client to get the available modes of operation for vehicle.|
 |/deepracer_systems_pkg/verify_model_ready|VerifyModelReadySrv|Client to verify model service to validate if the extraction and installation of the model was successful.|
 |/sensor_fusion_pkg/configure_lidar|LidarConfigSrv|Client to configure lidar service to dynamically configure the preprocessing details for the LiDAR data before publishing as part of sensor message.|
 |/ctrl_pkg/model_state|ModelStateSrv|Client to model state service to execute the load model services in background thread.|

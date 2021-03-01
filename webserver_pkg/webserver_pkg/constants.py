@@ -49,6 +49,7 @@ SET_CAR_CAL_SERVICE = f"{CTRL_PKG_NS}/set_car_cal"
 GET_CAR_LED_SERVICE = f"{CTRL_PKG_NS}/get_car_led"
 SET_CAR_LED_SERVICE = f"{CTRL_PKG_NS}/set_car_led"
 AUTONOMOUS_THROTTLE_SERVICE = f"{CTRL_PKG_NS}/autonomous_throttle"
+GET_CTRL_MODES_SERVICE = f"{CTRL_PKG_NS}/get_ctrl_modes"
 
 # deepracer_navigation_pkg
 DEEPRACER_NAVIGATION_PKG_NS = "/deepracer_navigation_pkg"
@@ -146,7 +147,7 @@ PWM_THROTTLE_CONVERSION = 4500
 PWM_OFFSET = 1500000
 CALIBRATION_MODE = 2
 
-# Default scale values
+# Default values for action space mapped to on the vehicle for speed values of 0.8 and 0.4
 DEFAULT_SPEED_SCALES = [1.0, 0.8]
 # Speed scale bounds to pick from while calculating the coefficients
 MANUAL_SPEED_SCALE_BOUNDS = [1.0, 5.0]
@@ -176,6 +177,14 @@ SOFTWARE_UPDATE_FETCH_FREQUENCY = 1
 SLEEP_TIME_BEFORE_REBOOT = SOFTWARE_UPDATE_FETCH_FREQUENCY + 1
 
 INVALID_ENUM_VALUE = 0
+
+# Mapping the various modes for the vehicle in ctrl_pkg
+MODE_DICT = { 
+    0: "manual",
+    1: "autonomous",
+    2: "calibration",
+    3: "followme"
+}
 
 
 class SensorInputKeys(Enum):
