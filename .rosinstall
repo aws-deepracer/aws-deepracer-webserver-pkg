@@ -1,24 +1,24 @@
 - git:
-    uri: https://github.com/aws-racer/aws-deepracer-ctrl-pkg.git
+    uri: https://github.com/awsdeepracer/aws-deepracer-ctrl-pkg.git
     local-name: aws-deepracer-ctrl-pkg
     version: main
 - git:
-    uri: https://github.com/aws-racer/aws-deepracer-device-info-pkg.git
+    uri: https://github.com/awsdeepracer/aws-deepracer-device-info-pkg.git
     local-name: aws-deepracer-device-info-pkg
     version: main
 - git:
-    uri: https://github.com/aws-racer/aws-deepracer-i2c-pkg.git
+    uri: https://github.com/awsdeepracer/aws-deepracer-i2c-pkg.git
     local-name: aws-deepracer-i2c-pkg
     version: main
 - git:
-    uri: https://github.com/aws-racer/aws-deepracer-interfaces-pkg.git
+    uri: https://github.com/awsdeepracer/aws-deepracer-interfaces-pkg.git
     local-name: aws-deepracer-interfaces-pkg
     version: main
 - git:
-    uri: https://github.com/aws-racer/aws-deepracer-sensor-fusion-pkg.git
+    uri: https://github.com/awsdeepracer/aws-deepracer-sensor-fusion-pkg.git
     local-name: aws-deepracer-sensor-fusion-pkg
     version: main
 - git:
-    uri: https://github.com/aws-racer/aws-deepracer-systems-pkg.git
+    uri: https://github.com/awsdeepracer/aws-deepracer-systems-pkg.git
     local-name: aws-deepracer-systems-pkg
     version: main

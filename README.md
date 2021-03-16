@@ -2,7 +2,7 @@
 
 ## Overview
 
-The DeepRacer Web Server ROS package creates the *web_publisher_node* which is part of the core AWS DeepRacer application and will be launched from the deepracer_launcher. More details about the application and the components can be found [here](https://github.com/aws-racer/aws-deepracer-launcher).
+The DeepRacer Web Server ROS package creates the *web_publisher_node* which is part of the core AWS DeepRacer application and will be launched from the deepracer_launcher. More details about the application and the components can be found [here](https://github.com/awsdeepracer/aws-deepracer-launcher).
 
 This node launches a Flask application as a background thread and creates service clients and subscribers for all the services and topics that are required by the APIs called from the DeepRacer vehicle console. This node acts as an interface between the AWS DeepRacer device console and the backend ROS services.
 
@@ -14,7 +14,7 @@ The source code is released under Apache 2.0 (https://aws.amazon.com/apache-2-0/
 
 ### Prerequisites
 
-The DeepRacer device comes with all the pre-requisite packages and libraries installed to run the webserver_pkg. More details about pre installed set of packages and libraries on the DeepRacer, and installing required build systems can be found in the [Getting Started](https://github.com/aws-racer/aws-deepracer-launcher/blob/main/getting-started.md) section of the AWS DeepRacer Opensource page.
+The DeepRacer device comes with all the pre-requisite packages and libraries installed to run the webserver_pkg. More details about pre installed set of packages and libraries on the DeepRacer, and installing required build systems can be found in the [Getting Started](https://github.com/awsdeepracer/aws-deepracer-launcher/blob/main/getting-started.md) section of the AWS DeepRacer Opensource page.
 
 The webserver_pkg specifically depends on the following ROS2 packages as build and execute dependencies:
 
@@ -40,7 +40,7 @@ Open up a terminal on the DeepRacer device and run the following commands as roo
 
 1. Clone the webserver_pkg on the DeepRacer device:
 
-        git clone https://github.com/aws-racer/aws-deepracer-webserver-pkg.git
+        git clone https://github.com/awsdeepracer/aws-deepracer-webserver-pkg.git
 
 1. Fetch unreleased dependencies:
 
