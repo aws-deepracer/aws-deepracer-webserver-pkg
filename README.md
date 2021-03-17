@@ -136,3 +136,7 @@ The webserver_publisher_node provides the core functionality to launch the FLASK
 |/ctrl_pkg/autonomous_throttle|NavThrottleSrv|Client to autonomous throttle service to set the scale value to multiply to the throttle during autonomous navigation.|
 |/deepracer_systems_pkg/get_otg_link_state|OTGLinkStateSrv|Client to the get otg link state service to get the current connection status of micro-USB cable to the DeepRacer device.|
 
+## Resources
+
+* AWS DeepRacer Opensource getting started: [https://github.com/awsdeepracer/aws-deepracer-launcher/blob/main/getting-started.md](https://github.com/awsdeepracer/aws-deepracer-launcher/blob/main/getting-started.md)
+
