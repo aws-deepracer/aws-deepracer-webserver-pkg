@@ -182,8 +182,7 @@ INVALID_ENUM_VALUE = 0
 MODE_DICT = { 
     0: "manual",
     1: "autonomous",
-    2: "calibration",
-    3: "followme"
+    2: "calibration"
 }
 
 
