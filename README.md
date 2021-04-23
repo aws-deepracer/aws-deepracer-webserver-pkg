@@ -2,7 +2,7 @@
 
 ## Overview
 
-The DeepRacer Web Server ROS package creates the *web_publisher_node* which is part of the core AWS DeepRacer application and will be launched from the deepracer_launcher. More details about the application and the components can be found [here](https://github.com/aws-deepracer/aws-deepracer-launcher).
+The DeepRacer Web Server ROS package creates the *webserver_publisher_node* which is part of the core AWS DeepRacer application and will be launched from the deepracer_launcher. More details about the application and the components can be found [here](https://github.com/aws-deepracer/aws-deepracer-launcher).
 
 This node launches a Flask application as a background thread and creates service clients and subscribers for all the services and topics that are required by the APIs called from the DeepRacer vehicle console. This node acts as an interface between the AWS DeepRacer device console and the backend ROS services.
 
@@ -137,7 +137,7 @@ The webserver_publisher_node provides the core functionality to launch the FLASK
 |/sensor_fusion_pkg/configure_lidar|LidarConfigSrv|Client to configure lidar service to dynamically configure the preprocessing details for the LiDAR data before publishing as part of sensor message.|
 |/ctrl_pkg/model_state|ModelStateSrv|Client to model state service to execute the load model services in background thread.|
 |/ctrl_pkg/is_model_loading|GetModelLoadingStatusSrv|Client to is model loading service to know if there is load model operation going on right now on the device.|
-|/deepracer_systems_pkg/console_model_action|ConsoleModelActionSrv|Client to the get otg link state service to get the current connection status of micro-USB cable to the DeepRacer device.|
+|/deepracer_systems_pkg/console_model_action|ConsoleModelActionSrv|Client to trigger the upload/delete models action from device console.|
 |/deepracer_systems_pkg/software_update_check|SoftwareUpdateCheckSrv|Client to the software update check service to find out if there is a software update available for the aws-deepracer packages.|
 |/deepracer_systems_pkg/begin_update|BeginSoftwareUpdateSrv|Client to the begin update service to trigger the update of the aws-deepracer debian packages to the latest software version available.|
 |/deepracer_systems_pkg/software_update_state|SoftwareUpdateStateSrv|Client to software update state service to get the current software update state from the states [ UPDATE_UNKNOWN, UP_TO_DATE, UPDATE_AVAILABLE, UPDATE_PENDING, UPDATE_IN_PROGRESS ].|
