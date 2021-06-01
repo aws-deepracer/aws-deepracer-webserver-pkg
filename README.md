@@ -1,25 +1,25 @@
-# AWS DeepRacer Web Server package
+# AWS DeepRacer web server package
 
 ## Overview
 
-The DeepRacer Web Server ROS package creates the `webserver_publisher_node`, which is part of the core AWS DeepRacer application and is launched from the `deepracer_launcher`. For more details about the application and its components, see the [`aws-deepracer-launcher` repository](https://github.com/aws-deepracer/aws-deepracer-launcher).
+The AWS DeepRacer web server ROS package creates the `webserver_publisher_node`, which is part of the core AWS DeepRacer application and launches from the `deepracer_launcher`. For more details about the application and its components, see the [`aws-deepracer-launcher` repository](https://github.com/aws-deepracer/aws-deepracer-launcher).
 
-This node launches a Flask application as a background thread and creates service clients and subscribers for all the services and topics that are required by the APIs called from the AWS DeepRacer vehicle console. This node acts as an interface between the AWS DeepRacer device console and the backend ROS services.
+This node launches a Flask application as a background thread and creates service clients and subscribers for all the services and topics required by the APIs called from the AWS DeepRacer vehicle console. This node acts as an interface between the AWS DeepRacer device console and the backend ROS services.
 
 ## License
 
 The source code is released under [Apache 2.0](https://aws.amazon.com/apache-2-0/).
 
 ## Installation
-Follow these steps to install the AWS DeepRacer Web Server package.
+Follow these steps to install the AWS DeepRacer web server package.
 
 ### Prerequisites
 
-The AWS DeepRacer device comes with all the prerequisite packages and libraries installed to run the `webserver_pkg`. For more details about the preinstalled set of packages and libraries on the AWS DeepRacer device and installing required build systems, see the [Getting Started](https://github.com/aws-deepracer/aws-deepracer-launcher/blob/main/getting-started.md) section of the AWS DeepRacer OpenSource page.
+The AWS DeepRacer device comes with all the prerequisite packages and libraries installed to run the `webserver_pkg`. For more details about the preinstalled set of packages and libraries on the AWS DeepRacer device and about installing required build systems, see the [Getting started with AWS DeepRacer OpenSource](https://github.com/aws-deepracer/aws-deepracer-launcher/blob/main/getting-started.md).
 
-The `webserver_pkg` specifically depends on the following ROS 2 packages as build and execute dependencies:
+The `webserver_pkg` specifically depends on the following ROS 2 packages as build and run dependencies.
 
-1. `deepracer_interfaces_pkg`: This packages contains the custom message and service type definitions used across the AWS DeepRacer core application.
+1. `deepracer_interfaces_pkg`: This package contains the custom message and service type definitions used across the AWS DeepRacer core application.
 1. `ctrl_pkg`: The AWS DeepRacer control ROS package creates the `ctrl_node`, which is part of the core AWS DeepRacer application.
 1. `sensor_fusion_pkg`: The AWS DeepRacer sensor fusion ROS package creates the `sensor_fusion_node`, which is part of the core AWS DeepRacer application.
 1. `deepracer_systems_pkg`: The AWS DeepRacer systems ROS package creates the `software_update_node`, `model_loader_node`, `network_monitor_node`, and `otg_control_node`, which are part of the core AWS DeepRacer application.
@@ -62,11 +62,11 @@ Open a terminal on the AWS DeepRacer device and run the following commands as th
 
 ## Usage
 
-The `webserver_publisher_node` provides basic system-level functionality for the AWS DeepRacer application to work. Although the node is built to work with the AWS DeepRacer application, it can be run independently for development, testing, and debugging purposes.
+The `webserver_publisher_node` provides basic system-level functionality for the AWS DeepRacer application to work. Although the node is built to work with the AWS DeepRacer application, you can run it independently for development, testing, and debugging purposes.
 
 ### Running the node
 
-To launch the built `webserver_publisher_node` as the root user on the AWS DeepRacer device, open another terminal on the AWS DeepRacer device and run the following commands as the root user:
+To launch the built `webserver_publisher_node` as the root user on the AWS DeepRacer device, open another terminal on the AWS DeepRacer device and run the following commands as the root user.
 
 1. Switch to the root user before you source the ROS 2 installation:
 
@@ -86,7 +86,7 @@ To launch the built `webserver_publisher_node` as the root user on the AWS DeepR
 
 ## Launch files
 
-The `webserver_publisher_node` provides the core functionality to launch the FLASK server and respond to the FLASK API calls. The  `webserver_pkg_launch.py` is also included in this package and gives an example of how to launch the nodes independently from the core application.
+The `webserver_publisher_node` provides the core functionality to launch the FLASK server and respond to the FLASK API calls. The  `webserver_pkg_launch.py`, included in this package, and provides an example demonstrating how to launch the nodes independently from the core application.
 
     from launch import LaunchDescription
     from launch_ros.actions import Node
@@ -114,7 +114,7 @@ The `webserver_publisher_node` provides the core functionality to launch the FLA
 
 #### Published topics
 
-| Topic Name | Message Type | Description |
+| Topic name | Message type | Description |
 | ---------- | ------------ | ----------- |
 |`/webserver_pkg/calibration_drive`|`ServoCtrlMsg`|Publish a message with raw PWM values for steering angle and throttle data sent to the servo package to calibrate the car.|
 |`/webserver_pkg/manual_drive`|`ServoCtrlMsg`|Publish a message with steering angle and throttle data sent to the servo package to move the car.|
@@ -135,10 +135,10 @@ The `webserver_publisher_node` provides the core functionality to launch the FLA
 |`/ctrl_pkg/get_car_led`|`GetLedCtrlSrv`|Client to the `get car led` service to get the tail light LED values.|
 |`/ctrl_pkg/get_ctrl_modes`|`GetCtrlModesSrv`|Client to get the available modes of operation for vehicle.|
 |`/deepracer_systems_pkg/verify_model_ready`|`VerifyModelReadySrv`|Client to the `verify model` service to validate if the extraction and installation of the model was successful.|
-|`/sensor_fusion_pkg/configure_lidar`|`LidarConfigSrv`|Client to the `configure LiDAR service` to dynamically configure the preprocessing details for the LiDAR data before publishing as part a 
-|`/ctrl_pkg/model_state`|`ModelStateSrv`|Client to the `model state` service to execute the load model services in background thread.|
-|`/ctrl_pkg/is_model_loading`|`GetModelLoadingStatusSrv`|Client to the `is model loading` service to know if there is a load model operation going on right now on the device.|
-|`/deepracer_systems_pkg/console_model_action`|`ConsoleModelActionSrv`|Client to trigger the upload and delete models action from the device console.|
+|`/sensor_fusion_pkg/configure_lidar`|`LidarConfigSrv`|Client to the `configure LiDAR service` to dynamically configure the preprocessing details for the LiDAR data before publishing.
+|`/ctrl_pkg/model_state`|`ModelStateSrv`|Client to the `model state` service to execute the `load model` service in a background thread.|
+|`/ctrl_pkg/is_model_loading`|`GetModelLoadingStatusSrv`|Client to the `is model loading` service to detect if there is a `load model` operation going on right now on the device.|
+|`/deepracer_systems_pkg/console_model_action`|`ConsoleModelActionSrv`|Client to initiate the upload and delete models action from the device console.|
 |`/deepracer_systems_pkg/software_update_check`|`SoftwareUpdateCheckSrv`|Client to the `software update check` service to find out if there is a software update available for the aws-deepracer packages.|
 |`/deepracer_systems_pkg/begin_update`|`BeginSoftwareUpdateSrv`|Client to the `begin update service` to initiate the update of the `aws-deepracer` Debian packages to the latest software version available.|
 |`/deepracer_systems_pkg/software_update_state`|`SoftwareUpdateStateSrv`|Client to the `software update state` service to get the current software update state from the states [ UPDATE_UNKNOWN, UP_TO_DATE, UPDATE_AVAILABLE, UPDATE_PENDING, UPDATE_IN_PROGRESS ].|
@@ -147,5 +147,5 @@ The `webserver_publisher_node` provides the core functionality to launch the FLA
 
 ## Resources
 
-* [Getting Started with AWS DeepRacer OpenSource](https://github.com/aws-deepracer/aws-deepracer-launcher/blob/main/getting-started.md)
+* [Getting started with AWS DeepRacer OpenSource](https://github.com/aws-deepracer/aws-deepracer-launcher/blob/main/getting-started.md)
 
